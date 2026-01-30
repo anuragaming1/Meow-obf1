@@ -1,0 +1,28 @@
+{
+  "name": "meow-obf1",
+  "version": "1.0.0",
+  "description": "Web Application with Obfuscation + WebAssembly Protection",
+  "scripts": {
+    "build:wasm": "emcc wasm/calculator.c -Os -s WASM=1 -s SIDE_MODULE=1 -o wasm/calculator.wasm",
+    "obfuscate": "javascript-obfuscator app.js --output dist/app.obfuscated.js",
+    "build": "node build.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "obfuscation",
+    "webassembly",
+    "security",
+    "javascript",
+    "meow-obf1"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "javascript-obfuscator": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
