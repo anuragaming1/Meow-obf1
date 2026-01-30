@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảo Mật Ứng Dụng Web - Obfuscation + WebAssembly</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-shield-alt"></i> Ứng Dụng Web Bảo Mật Nâng Cao</h1>
+            <p class="subtitle">Kết hợp Obfuscation + WebAssembly + Runtime Protection</p>
+        </header>
+
+        <div class="security-status">
+            <div class="status-card">
+                <i class="fas fa-lock status-icon"></i>
+                <span>JavaScript Obfuscated: <span class="status-badge active">ĐANG HOẠT ĐỘNG</span></span>
+            </div>
+            <div class="status-card">
+                <i class="fas fa-microchip status-icon"></i>
+                <span>WebAssembly: <span class="status-badge active">ĐANG CHẠY</span></span>
+            </div>
+            <div class="status-card">
+                <i class="fas fa-eye-slash status-icon"></i>
+                <span>Anti-Debug: <span class="status-badge active">KÍCH HOẠT</span></span>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div class="card">
+                <h2><i class="fas fa-calculator"></i> Máy Tính Bảo Mật</h2>
+                <p class="card-description">Logic tính toán được bảo vệ bởi WebAssembly và Obfuscation</p>
+                
+                <div class="calculator">
+                    <div class="display">
+                        <input type="text" id="display" readonly value="0">
+                        <div class="operation-display" id="operationDisplay"></div>
+                    </div>
+                    
+                    <div class="buttons">
+                        <div class="row">
+                            <button class="btn operator" data-action="clear">C</button>
+                            <button class="btn operator" data-action="backspace"><i class="fas fa-backspace"></i></button>
+                            <button class="btn operator" data-action="percent">%</button>
+                            <button class="btn operator" data-action="divide">÷</button>
+                        </div>
+                        <div class="row">
+                            <button class="btn number" data-number="7">7</button>
+                            <button class="btn number" data-number="8">8</button>
+                            <button class="btn number" data-number="9">9</button>
+                            <button class="btn operator" data-action="multiply">×</button>
+                        </div>
+                        <div class="row">
+                            <button class="btn number" data-number="4">4</button>
+                            <button class="btn number" data-number="5">5</button>
+                            <button class="btn number" data-number="6">6</button>
+                            <button class="btn operator" data-action="subtract">−</button>
+                        </div>
+                        <div class="row">
+                            <button class="btn number" data-number="1">1</button>
+                            <button class="btn number" data-number="2">2</button>
+                            <button class="btn number" data-number="3">3</button>
+                            <button class="btn operator" data-action="add">+</button>
+                        </div>
+                        <div class="row">
+                            <button class="btn number zero" data-number="0">0</button>
+                            <button class="btn decimal" data-action="decimal">.</button>
+                            <button class="btn equals" data-action="equals">=</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h3><i class="fas fa-chart-line"></i> Thông Tin Tính Toán</h3>
+                    <div class="result-info">
+                        <p>Phép tính được xử lý bởi: <strong id="processorType">...</strong></p>
+                        <p>Kết quả từ WebAssembly: <code id="wasmResult">--</code></p>
+                        <p>Kết quả từ JavaScript: <code id="jsResult">--</code></p>
+                        <p>Thời gian xử lý: <span id="processingTime">0</span>ms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-code"></i> Kiểm Tra Bảo Mật</h2>
+                
+                <div class="security-checks">
+                    <div class="check-item">
+                        <button id="checkDebugger" class="check-btn">
+                            <i class="fas fa-bug"></i> Kiểm tra DevTools
+                        </button>
+                        <span id="debuggerStatus" class="check-status">Chưa kiểm tra</span>
+                    </div>
+                    
+                    <div class="check-item">
+                        <button id="checkTamper" class="check-btn">
+                            <i class="fas fa-user-secret"></i> Kiểm tra Tampering
+                        </button>
+                        <span id="tamperStatus" class="check-status">Chưa kiểm tra</span>
+                    </div>
+                    
+                    <div class="check-item">
+                        <button id="checkWasm" class="check-btn">
+                            <i class="fas fa-microchip"></i> Kiểm tra WebAssembly
+                        </button>
+                        <span id="wasmStatus" class="check-status">Chưa kiểm tra</span>
+                    </div>
+                </div>
+
+                <div class="code-preview">
+                    <h3><i class="fas fa-eye-slash"></i> Obfuscated Code Preview</h3>
+                    <div class="code-container">
+                        <pre id="obfuscatedCode">// Code đã được obfuscate sẽ hiển thị ở đây...</pre>
+                    </div>
+                    <button id="showCodeBtn" class="show-code-btn">
+                        <i class="fas fa-code"></i> Hiển thị đoạn code đã obfuscate
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> Thông Tin Bảo Mật</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-file-code"></i>
+                        <h4>JavaScript Obfuscation</h4>
+                        <p>Mã nguồn JS đã được làm rối với kỹ thuật đổi tên biến, mã hóa chuỗi, và control flow obfuscation.</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-microchip"></i>
+                        <h4>WebAssembly Module</h4>
+                        <p>Logic quan trọng được biên dịch sang WebAssembly, thực thi gần native speed và khó reverse engineer.</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Runtime Protection</h4>
+                        <p>Phát hiện và chống lại debug, tampering, và các công cụ phát triển.</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-server"></i>
+                        <h4>Server-Side Validation</h4>
+                        <p>Dữ liệu quan trọng được xác thực lại ở server trước khi xử lý.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 Ứng dụng web bảo mật nâng cao | Obfuscation + WebAssembly + Runtime Protection</p>
+            <p class="warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                Cảnh báo: Ứng dụng có cơ chế chống reverse engineering. Không mở DevTools nếu không cần thiết.
+            </p>
+        </footer>
+    </div>
+
+    <!-- WebAssembly loader -->
+    <script src="wasm/calculator.js"></script>
+    <!-- Obfuscated JavaScript (sẽ được tạo từ build process) -->
+    <script src="dist/app.obfuscated.js" defer></script>
+    
+    <!-- Load app after obfuscated code -->
+    <script>
+        // Load ứng dụng sau khi code đã obfuscate
+        document.addEventListener('DOMContentLoaded', function() {
+            // Code khởi tạo sẽ được thêm bởi app.obfuscated.js
+            console.log('Ứng dụng đang khởi động...');
+        });
+    </script>
+</body>
+</html>
